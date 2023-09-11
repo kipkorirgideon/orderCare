@@ -8,6 +8,12 @@ django = "*"
 django-environ = "*"
 psycopg2 = "*"
 djangorestframework = "*"
+django-model-utils = "*"
+django-nativeshortuuidfield = "*"
+africastalking = "*"
+uuid = "*"
+shortuuid = "*"
+django-grappelli = "*"
 
 [dev-packages]
 
