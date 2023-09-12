@@ -1,3 +1,4 @@
+from django.db.models import Sum
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -14,7 +15,8 @@ class OrderViewSet(viewsets.ModelViewSet):
     lookup_field = 'uuid'
 
     def create(self, request, *args, **kwargs):
-        print(request.data)
+        order_amount = Item.objects.filter(id__in=request.data['item']).aggregate(Sum('item_amount'))
+        request.data['amount'] = order_amount['item_amount__sum']
         return super(OrderViewSet, self).create(request, *args, **kwargs)
 
     # @action(detail=False, methods=['get'])
