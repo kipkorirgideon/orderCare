@@ -35,7 +35,8 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
     'localhost',
-    'https://ordercare-3759a549b02f.herokuapp.com/',
+    '127.0.0.1',
+    'ordercare-3759a549b02f.herokuapp.com',
 ]
 
 # Application definition
