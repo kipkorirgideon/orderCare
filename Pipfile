@@ -14,6 +14,8 @@ africastalking = "*"
 uuid = "*"
 shortuuid = "*"
 django-grappelli = "*"
+install = "*"
+gunicorn = "*"
 
 [dev-packages]
 
