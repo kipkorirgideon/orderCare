@@ -33,7 +33,10 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'https://ordercare-3759a549b02f.herokuapp.com/',
+]
 
 # Application definition
 
@@ -94,15 +97,35 @@ DATABASES = {
     'default': env.db(),
 }
 
+REDIS_URL = env.cache_url('REDIS_URL')
+REDIS_OPTIONS = {}
+
+if 'localhost' not in REDIS_URL['LOCATION'] and '127.0.0.1' not in REDIS_URL['LOCATION']:
+    REDIS_OPTIONS = {
+        'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        'CONNECTION_POOL_KWARGS': {
+            'ssl_cert_reqs': None
+        },
+        'REDIS_CLIENT_KWARGS': {
+            'ssl': True,
+            'ssl_cert_reqs': None
+        },
+    }
+
 CACHES = {
     # Read os.environ['CACHE_URL'] and raises
     # ImproperlyConfigured exception if not found.
     #
     # The cache() method is an alias for cache_url().
-    'default': env.cache(),
+    'default': {
+        **REDIS_URL,
+        'OPTIONS': {**REDIS_OPTIONS}
+    },
 
-    # read os.environ['REDIS_URL']
-    'redis': env.cache_url('REDIS_URL')
+    'redis': {
+        **REDIS_URL,
+        'OPTIONS': {**REDIS_OPTIONS}
+    },
 }
 
 # Password validation
