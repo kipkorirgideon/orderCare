@@ -16,6 +16,7 @@ shortuuid = "*"
 django-grappelli = "*"
 install = "*"
 gunicorn = "*"
+django-oauth-toolkit = "*"
 
 [dev-packages]
 

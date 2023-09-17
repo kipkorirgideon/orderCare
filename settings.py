@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'oauth2_provider',
     'rest_framework',
     'orderCare',
 ]
@@ -81,12 +82,29 @@ TEMPLATES = [
     },
 ]
 
+OAUTH2_PROVIDER = {
+    "OIDC_ENABLED": True,
+    "PKCE_REQUIRED": False,
+    "OAUTH2_VALIDATOR_CLASS": "custom_oauth_validator.OpenIDOAuth2Validator",
+    "OIDC_RP_INITIATED_LOGOUT_ENABLED": True,
+    "OIDC_RP_INITIATED_LOGOUT_ALWAYS_PROMPT": True,
+    'SCOPES': {
+        'read': 'Read scope',
+        'write': 'Write scope',
+        "openid": "OpenID Connect scope"
+    },
+    'DEFAULT_SCOPES': ['read', 'write', 'openid'],
+}
+
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
+    'DEFAULT_PERMISSION_CLASSES': (
+        # Use Django's standard `django.contrib.auth` permissions,
+        # or allow read-only access for unauthenticated users.
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
 }
 
 WSGI_APPLICATION = 'wsgi.application'
@@ -147,7 +165,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# AUTH_USER_MODEL = None
+LOGIN_URL = "/admin/login/"
+#
+# LOGIN_REDIRECT_URL = "/accounts/profile/"
+#
+# LOGOUT_REDIRECT_URL = None
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
