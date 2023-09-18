@@ -205,6 +205,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+GRAPPELLI_ADMIN_TITLE = 'OrderCare Admin'
+
+
+
 AFRICAS_TALKING_USERNAME = env('AFRICAS_TALKING_USERNAME', default='sandbox')
 AFRICAS_TALKING_API_KEY = env('AFRICAS_TALKING_API_KEY', default='')
 AFRICAS_TALKING_SENDER_ID = env('AFRICAS_TALKING_SENDER_ID', default='')
