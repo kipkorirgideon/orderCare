@@ -89,5 +89,5 @@ GitHub.sublime-settings
 .history
 .DS_Store
 .idea/
-staticfiles/
+django_static/
 node_modules/
