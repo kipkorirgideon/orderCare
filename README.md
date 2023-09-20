@@ -55,7 +55,7 @@
 
 ### Hosting on Heroku
 - App is hosted on Heroku at `https://ordercare-3759a549b02f.herokuapp.com/`
-- Enabled Continuous Deployment from `master` branch if CI passes in Heroku
+- Enabled Continuous Deployment from `main` branch if CI passes in Heroku
 
 ### Accessing Admin Panel
 - Go to `https://ordercare-3759a549b02f.herokuapp.com/admin/`
