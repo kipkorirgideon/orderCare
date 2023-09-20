@@ -67,3 +67,6 @@
 - Go to `https://ordercare-3759a549b02f.herokuapp.com/admin/`
 - Use `admin` as username and `admin` as password to login
 
+### Missing Features
+- Third party OAuth2 providers like Google, Facebook, Twitter, etc.
+- Unit tests
