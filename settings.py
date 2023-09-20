@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oauth2_provider',
     'rest_framework',
+    'rest_framework.authtoken',
     'orderCare',
 ]
 
@@ -109,6 +110,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
     ),
 }
@@ -218,3 +221,6 @@ AFRICAS_TALKING_USERNAME = env('AFRICAS_TALKING_USERNAME', default='sandbox')
 AFRICAS_TALKING_API_KEY = env('AFRICAS_TALKING_API_KEY', default='')
 AFRICAS_TALKING_SENDER_ID = env('AFRICAS_TALKING_SENDER_ID', default='')
 CUSTOMER_SERVICE_NUMBER = env('CUSTOMER_SERVICE_NUMBER', default='')
+
+OAUTH2_CLIENT_ID = env('OAUTH2_CLIENT_ID', default='')
+OAUTH2_CLIENT_SECRET = env('OAUTH2_CLIENT_SECRET', default='')
