@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Customer
-        fields = ['customer_code', 'customer_name']
+        fields = ['customer_code', ]
 
 
 class OrderSerializer(serializers.ModelSerializer):
