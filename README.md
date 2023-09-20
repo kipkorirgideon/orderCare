@@ -53,6 +53,12 @@
 - `{protocol}://{host_domain}/api/orders/items/<item_id>/` - `PUT` - Update an item
 - `{protocol}://{host_domain}/api/orders/items/<item_id>/` - `DELETE` - Delete an item
 
+### Postman Collection
+- Postman collection is available at `https://documenter.getpostman.com/view/21446763/2s9YCAQVoM`
+- Import the collection into Postman and start testing
+- Make sure to update the `host_domain` variable in the collection to your local domain
+- Make sure to update the `access_token` variable in the collection to your access token once you login using username and password provided above
+
 ### Hosting on Heroku
 - App is hosted on Heroku at `https://ordercare-3759a549b02f.herokuapp.com/`
 - Enabled Continuous Deployment for any push to `main`
