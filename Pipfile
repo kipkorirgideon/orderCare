@@ -17,6 +17,7 @@ django-grappelli = "*"
 install = "*"
 gunicorn = "*"
 django-oauth-toolkit = "*"
+twilio = "*"
 
 [dev-packages]
 
